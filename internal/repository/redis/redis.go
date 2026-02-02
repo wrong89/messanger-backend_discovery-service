@@ -6,8 +6,8 @@ type Storage struct {
 	db *redis.Client
 }
 
-func NewStorage(connURL string) Storage {
-	opts, err := redis.ParseURL(connURL)
+func NewStorage(dbURL string) Storage {
+	opts, err := redis.ParseURL(dbURL)
 	if err != nil {
 		panic(err)
 	}
@@ -16,5 +16,3 @@ func NewStorage(connURL string) Storage {
 		db: redis.NewClient(opts),
 	}
 }
-
-
